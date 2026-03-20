@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>欢迎来到我的个人网站</h1>
+        <nav id="navbar">
+            <span class="menu-toggle">☰</span>
+            <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#projects">作品展示</a></li>
+                <li><a href="#contact">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <header>
+            <h1>欢迎来到我的个人网站</h1>
+            <nav id="navbar">
+                <span class="menu-toggle">☰</span>
+                <ul class="nav-links">
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#projects">作品展示</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- 欢迎卡片区域 -->
+        <section class="hero">
+            <img src="images/avatar.png" alt="头像" class="avatar">
+            <h2>你好，我是 [你的名字]</h2>
+            <p>欢迎来到我的个人网站！</p>
+        </section>
+    
+        <main>
+            <section id="about">
+                <h2>关于我</h2>
+                <p>你好，我是 [你的名字]，这是我的个人网站。在这里你可以看到我的作品和一些技术分享。</p>
+            </section>
+            <!-- 其他内容不变 -->
+    <main>
+        <section id="about">
+            <h2>关于我</h2>
+            <p>你好，我是 [你的名字]，这是我的个人网站。在这里你可以看到我的作品和一些技术分享。</p>
+        </section>
+
+        <section id="projects">
+            <h2>作品展示</h2>
+            <ul>
+                <li>作品1：描述...</li>
+                <li>作品2：描述...</li>
+                <li>作品3：描述...</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>联系我</h2>
+            <p>邮箱: yourname@example.com</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 [你的名字]. 版权所有.</p>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))
+                        .scrollIntoView({ behavior: 'smooth' });
+                // 收起菜单（适合小屏幕）
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // 响应式菜单切换
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
