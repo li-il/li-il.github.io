@@ -48,12 +48,11 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight"
+            {/* 将类名合并到这里，注意去掉多余的 h1 标签 */}
+            className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight animate-gradient-text"
           >
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight animate-gradient-text">
-  Your Name.
-</h1>
-            <span className="text-slate-500">I build digital experiences.</span>
+            Your Name. <br />
+            <span className="text-slate-500 italic">I build digital experiences.</span>
           </motion.h1>
 
           <motion.p 
