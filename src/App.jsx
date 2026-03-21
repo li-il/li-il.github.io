@@ -22,7 +22,7 @@ function App() {
             animate={{ opacity: 1 }}
             className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent"
           >
-            Dev.Portfolio
+            Portfolio
           </motion.span>
           <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
             <a href="#about" className="hover:text-blue-400 transition">About</a>
