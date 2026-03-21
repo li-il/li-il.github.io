@@ -50,7 +50,9 @@ function App() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight"
           >
-            Your Name. <br />
+            <h1 className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight animate-gradient-text">
+  Your Name.
+</h1>
             <span className="text-slate-500">I build digital experiences.</span>
           </motion.h1>
 
