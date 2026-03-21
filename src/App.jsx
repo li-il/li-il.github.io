@@ -48,7 +48,6 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            {/* 将类名合并到这里，注意去掉多余的 h1 标签 */}
             className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight animate-gradient-text"
           >
             Your Name. <br />
