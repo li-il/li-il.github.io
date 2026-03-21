@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; 
 import { Github, Mail, Linkedin, ExternalLink, Code2, Cpu, Globe } from 'lucide-react';
 
 function Home() {
@@ -154,8 +155,7 @@ function Home() {
 }
 
 // 辅助组件：项目卡片
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; // 确保引入了 motion
+
 
 // 1. 在这里添加 id
 function ProjectCard({ id, title, desc, tags, icon }) {
