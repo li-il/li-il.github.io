@@ -18,3 +18,16 @@
 html {
   scroll-behavior: smooth;
 }
+a {
+  text-decoration: none !important; /* 强制取消下划线 */
+  color: inherit;                  /* 强制继承父元素的文字颜色 */
+}
+
+/* 如果你只想针对特定的类名（比如你在组件里用的） */
+.no-underline {
+  text-decoration: none !important;
+}
+
+.text-inherit {
+  color: inherit !important;
+}

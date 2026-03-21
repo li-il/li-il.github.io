@@ -91,6 +91,7 @@ function Home() {
           <Link to="/project/jabberwocky">
             {/* 项目 1: Jabberwocky */}
             <ProjectCard 
+              id="jabberwocky"
               title="Jabberwocky Poem"
               desc="'Twas brillig, and the slithy toves did gyre and gimble in the wabe..."
               tags={["React", "Vite", "GitHub Pages"]}
