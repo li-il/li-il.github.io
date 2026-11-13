@@ -9,6 +9,7 @@ import { geoContains } from "d3-geo"; // 修复 2: 确保已安装 d3-geo
 import { feature } from "topojson-client"; // 修复 3: 确保已安装 topojson-client
 import { travelSpots } from '../data/travelData';
 import SiteNav from '../components/SiteNav';
+import torontoImage from '../assets/toronto.jpg';
 
 function Home() {
   const fadeInUp = {
@@ -86,7 +87,7 @@ function Home() {
         <div className="group relative overflow-hidden rounded-[2.5rem] bg-slate-800/40 border border-white/5 backdrop-blur-sm shadow-2xl transition-all hover:border-blue-500/20">
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-5/12 h-64 md:h-auto overflow-hidden">
-              <img src="https://unsplash.com" alt="Latest Trip" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <img src={torontoImage} alt="Toronto skyline and CN Tower beside Lake Ontario" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
             </div>
             <div className="w-full md:w-7/12 p-8 md:p-12 relative flex flex-col justify-center">
               <div className="flex items-center space-x-3 text-blue-400 font-mono text-[10px] tracking-[0.3em] uppercase mb-6">

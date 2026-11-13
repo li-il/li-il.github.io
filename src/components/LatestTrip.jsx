@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, ArrowRight, Globe } from 'lucide-react';
+import torontoImage from '../assets/toronto.jpg';
 
 const LatestTrip = () => {
   // 这里填入你最近一次旅行的真实数据
@@ -8,9 +9,8 @@ const LatestTrip = () => {
     city: "Toronto",
     date: "March 2026",
     desc: "Exploring the foggy skyline and lakeside serenity.",
-    // 建议直接引用你 travel 项目里的图片地址，或者主站本地的一张精美缩略图
-    image: "https://images.unsplash.com", 
-    link: "https://li-il.github.io"
+    image: torontoImage,
+    link: "https://li-il.github.io/travel/"
   };
 
   return (
