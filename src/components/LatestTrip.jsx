@@ -10,7 +10,7 @@ const LatestTrip = () => {
     date: "March 2026",
     desc: "Exploring the foggy skyline and lakeside serenity.",
     image: torontoImage,
-    link: "https://li-il.github.io/travel/"
+    link: "https://li-il.github.io/travel/#/gallery/toronto"
   };
 
   return (
@@ -24,13 +24,13 @@ const LatestTrip = () => {
         <div className="flex flex-col md:flex-row items-center">
           
           {/* 左侧：精美大图 */}
-          <div className="w-full md:w-1/2 h-64 md:h-96 overflow-hidden">
+          <a href={latest.link} aria-label="Open Toronto photo gallery" className="block w-full md:w-1/2 h-64 md:h-96 overflow-hidden">
             <img 
               src={latest.image} 
               alt={latest.city}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-          </div>
+          </a>
 
           {/* 右侧：文字介绍 */}
           <div className="w-full md:w-1/2 p-10 md:p-16 relative">
@@ -54,8 +54,6 @@ const LatestTrip = () => {
 
             <a 
               href={latest.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-white font-bold group/btn"
             >
               <span className="border-b-2 border-blue-500 pb-1 group-hover/btn:border-blue-400 transition-colors">

@@ -5,11 +5,10 @@ import {
   Github, Mail, Linkedin, Globe, Cpu, 
   MapPin, Calendar, ArrowRight, Camera 
 } from 'lucide-react';
-import { geoContains } from "d3-geo"; // 修复 2: 确保已安装 d3-geo
-import { feature } from "topojson-client"; // 修复 3: 确保已安装 topojson-client
-import { travelSpots } from '../data/travelData';
 import SiteNav from '../components/SiteNav';
 import torontoImage from '../assets/toronto.jpg';
+
+const latestGalleryUrl = 'https://li-il.github.io/travel/#/gallery/toronto';
 
 function Home() {
   const fadeInUp = {
@@ -19,26 +18,24 @@ function Home() {
     transition: { duration: 0.6 }
   };
 
-  // 修复 4: 自动计算逻辑
-  const [percent, setPercent] = useState(0);
+  const [percent, setPercent] = useState(null);
 
   useEffect(() => {
-    // 确保你的主站 public 文件夹里也有一份 world.json
-    fetch("./world.json") 
-      .then(res => res.json())
-      .then(worldData => {
-        const countries = feature(worldData, worldData.objects.countries).features;
-        const visitedSet = new Set();
-
-        travelSpots.forEach(spot => {
-          const country = countries.find(c => geoContains(c, spot.coordinates));
-          if (country) visitedSet.add(country.id || country.properties.name);
-        });
-
-        const calculated = ((visitedSet.size / 195) * 100).toFixed(1);
-        setPercent(calculated);
+    const controller = new AbortController();
+    fetch('/travel/travel-summary.json', { signal: controller.signal, cache: 'no-cache' })
+      .then(res => {
+        if (!res.ok) throw new Error('Travel summary unavailable');
+        return res.json();
       })
-      .catch(() => setPercent(1.5)); // 失败时的保底显示
+      .then(summary => {
+        const value = Number(summary.explorationPercentage);
+        if (!Number.isFinite(value) || value < 0 || value > 100) {
+          throw new Error('Invalid travel summary');
+        }
+        setPercent(value.toFixed(1));
+      })
+      .catch(() => {});
+    return () => controller.abort();
   }, []);
 
   return (
@@ -86,9 +83,9 @@ function Home() {
       <motion.section {...fadeInUp} className="max-w-6xl mx-auto px-6 py-12">
         <div className="group relative overflow-hidden rounded-[2.5rem] bg-slate-800/40 border border-white/5 backdrop-blur-sm shadow-2xl transition-all hover:border-blue-500/20">
           <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-5/12 h-64 md:h-auto overflow-hidden">
+            <a href={latestGalleryUrl} aria-label="Open Toronto photo gallery" className="block w-full md:w-5/12 h-64 md:h-auto overflow-hidden">
               <img src={torontoImage} alt="Toronto skyline and CN Tower beside Lake Ontario" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-            </div>
+            </a>
             <div className="w-full md:w-7/12 p-8 md:p-12 relative flex flex-col justify-center">
               <div className="flex items-center space-x-3 text-blue-400 font-mono text-[10px] tracking-[0.3em] uppercase mb-6">
                 <span className="bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Latest Footprint</span>
@@ -102,15 +99,15 @@ function Home() {
               <div className="mb-10 max-w-xs">
                 <div className="flex justify-between items-end mb-2">
                   <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest">Global Footprint</span>
-                  <span className="text-xl font-black text-white">{percent}%</span>
+                  <span className="text-xl font-black text-white">{percent === null ? '—' : `${percent}%`}</span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
-                  <motion.div initial={{ width: 0 }} whileInView={{ width: `${percent}%` }} transition={{ duration: 1.5 }} className="h-full bg-gradient-to-r from-blue-600 to-emerald-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]" />
+                  <motion.div initial={{ width: 0 }} whileInView={{ width: `${percent ?? 0}%` }} transition={{ duration: 1.5 }} className="h-full bg-gradient-to-r from-blue-600 to-emerald-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]" />
                 </div>
               </div>
 
               {/* 修复 5: 完整的外部链接地址 */}
-              <a href="https://li-il.github.io/travel/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center group/btn text-white font-bold">
+              <a href={latestGalleryUrl} className="inline-flex items-center group/btn text-white font-bold">
                 <span className="border-b-2 border-blue-600 pb-1 group-hover/btn:border-blue-400 transition-all">Explore Travel Log</span>
                 <ArrowRight size={18} className="ml-3 group-hover/btn:translate-x-2 transition-transform text-blue-500" />
               </a>
