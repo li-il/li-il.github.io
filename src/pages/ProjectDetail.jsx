@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function ProjectDetail() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans selection:bg-blue-500/30">
-      <div className="max-w-4xl mx-auto px-6 py-20">
+      <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
         
         {/* 返回按钮 */}
         <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
@@ -74,7 +74,7 @@ All mimsy were the borogoves,
 
         {/* 底部按钮 */}
         <div className="flex space-x-6 border-t border-slate-800 pt-12">
-          <a href="https://github.com" className="flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition">
+          <a href="https://github.com/li-il/li-il.github.io" className="flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition">
             <Github size={20} className="mr-2" /> Source Code
           </a>
         </div>

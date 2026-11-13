@@ -7,7 +7,8 @@ import {
 } from 'lucide-react';
 import { geoContains } from "d3-geo"; // 修复 2: 确保已安装 d3-geo
 import { feature } from "topojson-client"; // 修复 3: 确保已安装 topojson-client
-import { travelSpots } from '../data/travelData'; 
+import { travelSpots } from '../data/travelData';
+import SiteNav from '../components/SiteNav';
 
 function Home() {
   const fadeInUp = {
@@ -42,18 +43,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-blue-500/30">
       {/* 1. 导航栏 */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-            Portfolio
-          </motion.span>
-          <div className="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-            <a href="#about" className="hover:text-blue-400 transition">About</a>
-            <a href="#projects" className="hover:text-blue-400 transition">Projects</a>
-            <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* 2. Hero 区域 */}
       <header id="about" className="pt-48 pb-20 px-6">
@@ -74,7 +64,7 @@ function Home() {
         {/* 情况 A: 站内子页面项目 */}
         <ProjectCard 
           id="jabberwocky"
-          title="place holder"
+          title="Jabberwocky"
           desc="'Twas brillig, and the slithy toves did gyre and gimble in the wabe..."
           tags={["React", "Vite", "GitHub Pages"]}
           icon={<Globe size={20} />}
