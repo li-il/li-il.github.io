@@ -53,7 +53,9 @@ function Home() {
             <span className="text-slate-500 italic text-5xl md:text-7xl block mt-2">Securing Trust.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="max-w-xl text-lg text-slate-400 leading-relaxed mb-12">
-          Drive quality & security through automation.     </motion.p>
+            Quality engineer, curious by default. I ask “what if?”, poke at edge cases,
+            and help turn “works on my machine” into “works for people.”
+          </motion.p>
         </div>
       </header>
       {/* 4. 项目展示 */}

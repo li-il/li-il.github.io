@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowUpRight, Github } from 'lucide-react';
 import SiteNav from '../components/SiteNav';
 
 const pageCopy = {
-  about: ['About', 'Engineering Quality. Securing Trust.', 'A space for my work, ideas, and explorations.'],
+  about: ['About', 'Curious by default.', 'A few edge cases, a little experimentation, and plenty of “what if?”'],
   projects: ['Projects', 'Things I build & explore.', 'A growing collection of projects, experiments, and places.'],
   contact: ['Contact', 'Let’s connect.', 'Find my work and follow along on GitHub.'],
 };
@@ -20,8 +20,9 @@ export default function InfoPage({ page }) {
         {page === 'about' && (
           <section className="max-w-3xl rounded-2xl border border-slate-700 bg-slate-800/40 p-8 md:p-10">
             <h2 className="text-2xl font-bold mb-5">Hi, I’m Li.</h2>
-            <p className="text-slate-300 leading-relaxed mb-5">My focus is quality, security, and automation. This portfolio brings together the things I build and the ideas I explore along the way.</p>
-            <p className="text-slate-400 leading-relaxed mb-8">Beyond engineering, this space also holds my travel map — a collection of places and footprints from my journeys.</p>
+            <p className="text-slate-300 leading-relaxed mb-5">I’m a quality engineer with a soft spot for awkward edge cases and the question “what happens if…?” Making things work is fun. Making sure they still work when someone clicks twice, skips a step, or takes the scenic route? Even better.</p>
+            <p className="text-slate-400 leading-relaxed mb-5">I like turning repetitive checks into automation and mysterious bugs into repeatable steps. Fewer surprises for users, more little “aha!” moments for me.</p>
+            <p className="text-slate-400 leading-relaxed mb-8">This corner of the web holds small experiments, travel snapshots, and things I’m figuring out along the way. Same curiosity, different tabs.</p>
             <Link to="/projects" className="inline-flex items-center gap-2 text-blue-400 font-medium">Explore my projects <ArrowUpRight size={18} /></Link>
           </section>
         )}
